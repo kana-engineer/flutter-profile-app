@@ -31,15 +31,37 @@ class MyApp extends StatelessWidget {
                 color: Colors.grey,
                 borderRadius: BorderRadius.circular(15)
               ),
-              child:  Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.email),
-                SizedBox(width: 15,),
-                Text("alex@example.com")
-              ],
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.email, color: Colors.white,),
+                      SizedBox(width: 15,),
+                      Text("alex@example.com",style: TextStyle(color: Colors.white),)
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.phone, color: Colors.white,),
+                      SizedBox(width: 15,),
+                      Text("+7 (912) 345-67-89", style: TextStyle(
+                      color: Colors.white
+                  ),)
+                    ],
+                  )
+                ],
+              )  
             ),
-            )
+            SizedBox(height: 20,),
+            ElevatedButton(onPressed: () {
+
+            }, 
+            child: Text("Edit profile", style: TextStyle(color: Colors.black),))
           ]
         )),
       )
