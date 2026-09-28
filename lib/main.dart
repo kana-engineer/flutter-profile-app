@@ -24,7 +24,14 @@ class MyApp extends StatelessWidget {
             SizedBox(height: 5,),
             Text("Flutter Developer"),
             SizedBox(height: 20,),
-            Row(
+            Container(
+              width: 300,
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                borderRadius: BorderRadius.circular(15)
+              ),
+              child:  Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.email),
@@ -32,6 +39,7 @@ class MyApp extends StatelessWidget {
                 Text("alex@example.com")
               ],
             ),
+            )
           ]
         )),
       )
