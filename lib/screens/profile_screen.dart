@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 import 'edit_profile_screen.dart';
 
-class ProfileScreen extends StatelessWidget {
-const ProfileScreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreen();
+}
+
+
+
+class _ProfileScreen extends State<ProfileScreen>{
+  
+  String name = "Alex Smith";
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +27,7 @@ const ProfileScreen({super.key});
                radius: 40,
             ),
             SizedBox(height: 20,),
-            Text("Alex Smith", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
+            Text("${name}", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
             SizedBox(height: 5,),
             Text("Flutter Developer"),
             SizedBox(height: 20,),
@@ -55,8 +65,11 @@ const ProfileScreen({super.key});
               )  
             ),
             SizedBox(height: 20,),
-            ElevatedButton(onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfileScreen(),),);
+            ElevatedButton(onPressed: () async {
+              final result = await Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfileScreen(),),);
+              setState(() {
+                name = result;
+              });
             }, 
             child: Text("Edit profile", style: TextStyle(color: Colors.black),))
           ]
