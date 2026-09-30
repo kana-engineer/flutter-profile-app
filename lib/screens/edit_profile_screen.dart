@@ -11,6 +11,9 @@ class EditProfileScreen extends StatefulWidget{
 
 class _EditProfileScreen extends State<EditProfileScreen> {
    bool isSaved = false;
+   final nameController = TextEditingController();
+   final jobController = TextEditingController();
+   final emailController = TextEditingController();
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -21,18 +24,21 @@ class _EditProfileScreen extends State<EditProfileScreen> {
         child: Column(
           children: [
             TextField(
+              controller: nameController,
               decoration: InputDecoration(
                 labelText: "Name"
               ),
             ),
             SizedBox(height: 15,),
             TextField(
+              controller: jobController,
               decoration: InputDecoration(
                 labelText: "Job"
               ),
             ),
             SizedBox(height: 15,),
             TextField(
+              controller: emailController,
               decoration: InputDecoration(
                 labelText: "Email"
               ),
@@ -42,7 +48,7 @@ class _EditProfileScreen extends State<EditProfileScreen> {
                isSaved = true;
              });}, child: Text("Save")),
              SizedBox(height: 20,),
-             Text(isSaved ? "Save" : "Not saved")
+             Text(isSaved ? "Saved: ${nameController.text}, ${jobController.text} and ${emailController.text}" : "Not saved")
           ],
         ),
       )
